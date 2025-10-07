@@ -1,0 +1,120 @@
+/* =======================================
+   FONT IMPORTS
+   ======================================= */
+@font-face {
+  font-family: 'Deluxe220Default';
+  src: url('fonts/Deluxe220Default.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Deluxe220Bold';
+  src: url('fonts/Deluxe220Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Deluxe220Rough';
+  src: url('fonts/Deluxe220Rough.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Deluxe220Faded';
+  src: url('fonts/Deluxe220Faded.otf') format('opentype');
+}
+
+#typewriter-font-default { font-family: 'Deluxe220Default', monospace; font-size: 24px; }
+#typewriter-font-bold    { font-family: 'Deluxe220Bold', monospace; }
+#typewriter-font-rough   { font-family: 'Deluxe220Rough', monospace; }
+#typewriter-font-faded   { font-family: 'Deluxe220Faded', monospace; }
+
+/* =======================================
+   NOTEBOOK BACKGROUND
+   ======================================= */
+
+html, body {
+  font-family: 'Deluxe220Default', monospace; 
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;   /* ensures body can grow with content */
+  background-color: #fdfcf8;
+}
+
+body {
+  position: relative;  /* for pseudo-element positioning */
+  padding: 60px 60px 60px 90px; /* top/right/bottom/left (left to clear vertical line) */
+  text-align: left;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      #fffbea 0px,
+      #fffbea 27px,
+      #a5c3ff 28px
+    );
+  background-size: 100% 30px;
+}
+
+/* =======================================
+   VERTICAL MARGIN LINE - TWO LINES
+   ======================================= */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 60px;       /* horizontal position of the first line */
+  width: 4px;       /* total width to hold two lines and gap */
+  height: 100%;     /* full height of content */
+  min-height: 100vh; /* at least viewport height */
+  
+  /* Create two thin pink lines with a tiny gap using linear-gradient */
+  background: linear-gradient(
+    to right,
+    #e8a3a3 0px,    /* first line start */
+    #e8a3a3 1px,    /* first line end */
+    transparent 1px, 
+    transparent 2px, /* gap between lines */
+    #e8a3a3 2px,    /* second line start */
+    #e8a3a3 3px,    /* second line end */
+    transparent 3px,
+    transparent 4px
+  );
+}
+/* =======================================
+   TEXT PADDING & LAYOUT
+   ======================================= */
+p {
+  max-width: 90%;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+  font-size: 24px;
+}
+
+/* =======================================
+   FONT STYLES
+   ======================================= */
+.typewriter-font-mixed span {
+  line-height: 1.4;
+  vertical-align: baseline;
+}
+
+.typewriter-font-mixed .space {
+  display: inline-block;
+  width: 1em;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* =======================================
+   LINK STYLE
+   ======================================= */
+a {
+  color: #06399d;
+  text-decoration: none;
+  background-color: rgba(255, 230, 0, 0.3);
+  padding: 0 2px;
+  border-bottom: 2px solid rgba(255, 230, 0, 0.7);
+  transition: background 0.2s;
+}
+
+a:hover {
+  background-color: rgba(255, 230, 0, 0.6);
+}
